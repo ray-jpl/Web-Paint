@@ -1,0 +1,25 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+.wrapper {
+    min-height: 100%;
+    background-color: white;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+header,footer {
+    background-color: navy;
+    color: white;
+    text-align: center;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.options {
+    background-color: blanchedalmond;
+}
