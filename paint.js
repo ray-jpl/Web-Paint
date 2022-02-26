@@ -11,4 +11,11 @@ function createGrid(size) {
     }
 }
 
-createGrid(16);
+createGrid(16)
+
+
+grid.addEventListener('mouseover', function(e) {
+    if (e.target.matches('.cell')) {
+        e.target.classList.add('colored');
+    }
+});
