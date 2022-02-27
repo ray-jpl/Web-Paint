@@ -3,8 +3,10 @@ const DEFAULT_COLOUR = "#000000";
 
 var currSize = DEFAULT_SIZE;
 var currColour = DEFAULT_COLOUR;
+var prevColour = currColour;
 
 var grid = document.getElementById("grid");
+var colourBtn = document.getElementById("colourBtn");
 var clearBtn = document.getElementById("clearBtn");
 var eraserBtn = document.getElementById("eraserBtn");
 var sizeSlider = document.getElementById("sizeSlider");
@@ -12,10 +14,12 @@ var sizeOutput = document.getElementById("sizeOutput");
 
 clearBtn.addEventListener('click', clearGrid);
 eraserBtn.addEventListener('click', () => {currColour = '#FFFFFF';});
+colourBtn.addEventListener('click', () => {currColour = prevColour;});
 
-sizeOutput.innerHTML = sizeSlider.value;
+// updates Slider Value
+sizeOutput.innerHTML = `${sizeSlider.value} x ${sizeSlider.value}`;
 sizeSlider.oninput = function() {
-    sizeOutput.innerHTML = this.value;
+    sizeOutput.innerHTML = `${this.value} x ${this.value}`;
     currSize = this.value
     clearGrid();
 };
@@ -64,5 +68,5 @@ window.onload = () => {
     // Resets values when reloading page
     createGrid(DEFAULT_SIZE);
     sizeSlider.value = DEFAULT_SIZE;
-    sizeOutput.innerHTML = DEFAULT_SIZE
+    sizeOutput.innerHTML = `${sizeSlider.value} x ${sizeSlider.value}`;
 }
