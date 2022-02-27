@@ -6,6 +6,7 @@ var currColour = DEFAULT_COLOUR;
 var prevColour = currColour;
 
 var grid = document.getElementById("grid");
+var colourPick = document.getElementById("colourPick");
 var colourBtn = document.getElementById("colourBtn");
 var clearBtn = document.getElementById("clearBtn");
 var eraserBtn = document.getElementById("eraserBtn");
@@ -16,7 +17,16 @@ clearBtn.addEventListener('click', clearGrid);
 eraserBtn.addEventListener('click', () => {currColour = '#FFFFFF';});
 colourBtn.addEventListener('click', () => {currColour = prevColour;});
 
-// updates Slider Value
+
+// Updates Active Colour
+colourPick.oninput = function() {
+    currColour = this.value;
+    // Keep track of previous colour in case eraser is used
+    prevColour = this.value;
+}
+
+
+// Updates Slider Value
 sizeOutput.innerHTML = `${sizeSlider.value} x ${sizeSlider.value}`;
 sizeSlider.oninput = function() {
     sizeOutput.innerHTML = `${this.value} x ${this.value}`;
