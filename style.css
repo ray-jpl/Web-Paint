@@ -69,6 +69,12 @@ button:hover, #colourPick:hover {
     background-color: #b6e7ff;
 }
 
+#sizeSlider {
+    width: 128px;
+    height: 15px;
+}
+
+
 .canvas {
     display: grid;
     justify-content: center;
@@ -87,5 +93,5 @@ button:hover, #colourPick:hover {
 .cell {
     margin: 0;
     padding: 0;
-    border: 1px solid black
+    border: 1px solid gray
 }
