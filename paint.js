@@ -1,9 +1,16 @@
-const DEFAULT_SIZE = 16
+const DEFAULT_SIZE = 16;
+const DEFAULT_COLOUR = "#000000";
+
+var currSize = DEFAULT_SIZE;
+var currColour = DEFAULT_COLOUR;
 
 var grid = document.getElementById("grid");
-var clearBtn = document.getElementById("clearBtn")
+var clearBtn = document.getElementById("clearBtn");
+var eraserBtn = document.getElementById("eraserBtn");
 
-clearBtn.addEventListener('click', clearGrid)
+clearBtn.addEventListener('click', clearGrid);
+eraserBtn.addEventListener('click', () => {currColour = '#FFFFFF';});
+
 
 
 // Prevents ghosting image when drag/drop is attempted by mousedown Event
@@ -41,7 +48,7 @@ function colourIn(e) {
     // Checking only if the mouse is held down does not colour in the cell
     // where the mouse clicked down
     if (e.type == 'mousedown' || colourOn) {
-        e.target.style.backgroundColor = '#333333';
+        e.target.style.backgroundColor = currColour;
     }
 }
 
