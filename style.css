@@ -43,6 +43,15 @@ header {
     gap:20px;
 }
 
+#colourPick {
+    height: 48px;
+    width: 128px;
+    background-color: white;
+    border: 3px solid #b6e7ff;
+    transition: all 0.3s ease;
+    transform: scale(1);
+}
+
 button {
     height: 48px;
     width: 128px;
@@ -55,7 +64,7 @@ button {
     transform: scale(1);
 }
 
-button:hover {
+button:hover, #colourPick:hover {
     transform: scale(1.2) perspective(1px);
     background-color: #b6e7ff;
 }
