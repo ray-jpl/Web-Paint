@@ -1,16 +1,15 @@
-
-
 const DEFAULT_SIZE = 16
 
 var grid = document.getElementById("grid");
 var clearBtn = document.getElementById("clearBtn")
 
+clearBtn.addEventListener('click', clearGrid)
+
+
 // Prevents ghosting image when drag/drop is attempted by mousedown Event
 grid.ondragstart = function() {
     return false;
 };
-
-
 
 function createGrid(size) {
     grid.style.setProperty('--grid-rows', size);
@@ -25,6 +24,10 @@ function createGrid(size) {
     }
 }
 
+function clearGrid() {
+    grid.innerHTML = '';
+    createGrid(DEFAULT_SIZE);
+}
 
 createGrid(DEFAULT_SIZE)
 let colourOn = false;
@@ -41,4 +44,5 @@ function colourIn(e) {
         e.target.style.backgroundColor = '#333333';
     }
 }
+
 
