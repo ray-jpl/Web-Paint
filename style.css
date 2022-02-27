@@ -109,11 +109,15 @@ button:hover, #colourPick:hover {
 .cell {
     margin: 0;
     padding: 0;
-    border: 1px solid gray
+    border: 0px solid gray
 }
 
 
-/* w3schools.com css switch template*/
+/* 
+//////////////////////////////////////
+    w3schools.com css switch template
+//////////////////////////////////////
+*/
 /* The switch - the box around the slider */
 .switch {
     position: relative;
