@@ -12,11 +12,12 @@ var clearBtn = document.getElementById("clearBtn");
 var eraserBtn = document.getElementById("eraserBtn");
 var sizeSlider = document.getElementById("sizeSlider");
 var sizeOutput = document.getElementById("sizeOutput");
+var toggleGrid = document.getElementById("toggleGrid");
 
 clearBtn.addEventListener('click', clearGrid);
 eraserBtn.addEventListener('click', () => {currColour = '#FFFFFF';});
 colourBtn.addEventListener('click', () => {currColour = prevColour;});
-
+toggleGrid.addEventListener('click', toggleGridLines);
 
 // Updates Active Colour
 colourPick.oninput = function() {
@@ -34,6 +35,17 @@ sizeSlider.oninput = function() {
     clearGrid();
 };
 
+// // Grid Lines
+function toggleGridLines() {
+    var cells = document.getElementsByClassName("cell");
+    for (i = 0; i < cells.length; i++) {
+        if (toggleGrid.checked == false) {
+            cells[i].style.borderWidth = "0px";
+        } else {
+            cells[i].style.borderWidth = "1px";
+        }
+    }
+}
 
 // Prevents ghosting image when drag/drop is attempted by mousedown Event
 grid.ondragstart = function() {
@@ -56,6 +68,7 @@ function createGrid(size) {
 function clearGrid() {
     grid.innerHTML = '';
     createGrid(currSize);
+    toggleGridLines();
 }
 
 
@@ -79,4 +92,6 @@ window.onload = () => {
     createGrid(DEFAULT_SIZE);
     sizeSlider.value = DEFAULT_SIZE;
     sizeOutput.innerHTML = `${sizeSlider.value} x ${sizeSlider.value}`;
+    toggleGrid.checked = false;
+    colourPick.value = '#000000'
 }
