@@ -7,10 +7,18 @@ var currColour = DEFAULT_COLOUR;
 var grid = document.getElementById("grid");
 var clearBtn = document.getElementById("clearBtn");
 var eraserBtn = document.getElementById("eraserBtn");
+var sizeSlider = document.getElementById("sizeSlider");
+var sizeOutput = document.getElementById("sizeOutput");
 
 clearBtn.addEventListener('click', clearGrid);
 eraserBtn.addEventListener('click', () => {currColour = '#FFFFFF';});
 
+sizeOutput.innerHTML = sizeSlider.value;
+sizeSlider.oninput = function() {
+    sizeOutput.innerHTML = this.value;
+    currSize = this.value
+    clearGrid();
+};
 
 
 // Prevents ghosting image when drag/drop is attempted by mousedown Event
@@ -33,13 +41,13 @@ function createGrid(size) {
 
 function clearGrid() {
     grid.innerHTML = '';
-    createGrid(DEFAULT_SIZE);
+    createGrid(currSize);
 }
 
-createGrid(DEFAULT_SIZE)
+
 let colourOn = false;
-document.body.onmousedown = () => {colourOn = true};
-document.body.onmouseup = () => (colourOn = false);
+grid.onmousedown = () => {colourOn = true};
+grid.onmouseup = () => (colourOn = false);
 
 
 function colourIn(e) {
@@ -52,4 +60,9 @@ function colourIn(e) {
     }
 }
 
-
+window.onload = () => {
+    // Resets values when reloading page
+    createGrid(DEFAULT_SIZE);
+    sizeSlider.value = DEFAULT_SIZE;
+    sizeOutput.innerHTML = DEFAULT_SIZE
+}
