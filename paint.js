@@ -35,7 +35,7 @@ sizeSlider.oninput = function() {
     clearGrid();
 };
 
-// // Grid Lines
+// Grid Lines
 function toggleGridLines() {
     var cells = document.getElementsByClassName("cell");
     for (i = 0; i < cells.length; i++) {
@@ -71,7 +71,7 @@ function clearGrid() {
     toggleGridLines();
 }
 
-
+// Detects if it should be drawing
 let colourOn = false;
 grid.onmousedown = () => {colourOn = true};
 grid.onmouseup = () => (colourOn = false);
@@ -93,5 +93,5 @@ window.onload = () => {
     sizeSlider.value = DEFAULT_SIZE;
     sizeOutput.innerHTML = `${sizeSlider.value} x ${sizeSlider.value}`;
     toggleGrid.checked = false;
-    colourPick.value = '#000000'
+    colourPick.value = DEFAULT_COLOUR;
 }
