@@ -17,8 +17,18 @@
                     <button id="colourBtn">Colour In!</button>
                     <button id="eraserBtn">Eraser</button>
                     <button id="clearBtn">Clear</button>
-                    <div id="sizeOutput"></div>
-                    <input id="sizeSlider" type="range" min="8" max="64" value="16">
+                    
+                    <div class="gridLines">
+                        <div>Toggle Grid Lines</div>
+                        <label class="switch">
+                            <input id=toggleGrid type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="sizeSlider">
+                        <div id="sizeOutput"></div>
+                        <input id="sizeSlider" type="range" min="8" max="64" value="16">
+                    </div>
                 </div>
                 <div class="canvas">
                     <div id="grid" draggable="false"></div>
